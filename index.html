@@ -4,9 +4,397 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>mdarifhossain.bd</title>
+  <meta name="description" content="Personal website of Md. Arif Hossain" />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#111a2e;
+      --card2:#0f172a;
+      --text:#e5eefc;
+      --muted:#a9b7d0;
+      --line:rgba(255,255,255,.10);
+      --accent:#60a5fa;
+      --accent2:#22c55e;
+      --shadow:0 20px 50px rgba(0,0,0,.35);
+      --radius:22px;
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(96,165,250,.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(34,197,94,.12), transparent 28%),
+        linear-gradient(180deg, #07111f 0%, #0b1220 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{width:min(var(--max), calc(100% - 32px)); margin:0 auto}
+
+    header{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter: blur(14px);
+      background:rgba(7,17,31,.72);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:16px 0;
+      gap:16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; font-weight:700;
+      letter-spacing:.2px;
+    }
+    .logo{
+      width:42px; height:42px; border-radius:14px;
+      display:grid; place-items:center;
+      background:linear-gradient(135deg, rgba(96,165,250,.25), rgba(34,197,94,.18));
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      font-size:20px;
+    }
+    .menu{
+      display:flex; gap:20px; flex-wrap:wrap; justify-content:flex-end;
+      color:var(--muted);
+      font-size:15px;
+    }
+    .menu a:hover{color:var(--text)}
+
+    .hero{
+      padding:70px 0 36px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:26px;
+      align-items:center;
+    }
+    .eyebrow{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      border-radius:999px;
+      color:var(--muted);
+      font-size:14px;
+      margin-bottom:18px;
+    }
+    h1{
+      margin:0;
+      font-size:clamp(38px, 6vw, 66px);
+      line-height:1.05;
+      letter-spacing:-.03em;
+    }
+    .lead{
+      margin:18px 0 28px;
+      color:var(--muted);
+      font-size:18px;
+      max-width:60ch;
+    }
+    .actions{
+      display:flex; gap:12px; flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:14px 20px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      font-weight:700;
+      transition:.2s ease;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn.primary{
+      background:linear-gradient(135deg, var(--accent), #3b82f6);
+      color:#fff;
+      border-color:transparent;
+    }
+    .btn.secondary{
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+    }
+
+    .profile{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .profile-top{
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap:16px;
+    }
+    .avatar{
+      width:150px; height:150px; border-radius:50%;
+      object-fit:cover;
+      border:4px solid rgba(255,255,255,.08);
+      background:#0f172a;
+      box-shadow:0 14px 30px rgba(0,0,0,.35);
+    }
+    .name{
+      font-size:24px; font-weight:800; margin:0;
+    }
+    .role{color:var(--muted); margin:0}
+    .profile-badges{
+      display:flex; flex-wrap:wrap; gap:8px; justify-content:center;
+      padding:0 24px 24px;
+    }
+    .badge{
+      padding:8px 12px; border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    section{padding:22px 0}
+    .section-title{
+      font-size:28px; margin:0 0 14px;
+      letter-spacing:-.02em;
+    }
+    .section-sub{margin:0 0 18px; color:var(--muted); max-width:70ch}
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+    .card{
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+    .card h3{margin:0 0 10px; font-size:20px}
+    .card p{margin:0; color:var(--muted)}
+    .stat{
+      font-size:34px; font-weight:900; margin:0 0 6px;
+      color:#fff;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .project{
+      display:flex; flex-direction:column; gap:12px;
+    }
+    .project .tag{
+      width:max-content;
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(34,197,94,.14);
+      color:#baf7cb;
+      border:1px solid rgba(34,197,94,.22);
+    }
+    .project-links{display:flex; gap:10px; flex-wrap:wrap}
+    .project-links a{
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      color:var(--text);
+      background:rgba(255,255,255,.03);
+      font-size:14px;
+    }
+
+    .contact{
+      display:grid;
+      grid-template-columns:1fr .9fr;
+      gap:16px;
+      align-items:start;
+    }
+    .contact-list{
+      display:grid; gap:12px; margin-top:10px;
+    }
+    .contact-item{
+      padding:14px 16px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+    }
+    .contact-item strong{color:var(--text)}
+    footer{
+      padding:30px 0 42px;
+      color:var(--muted);
+      text-align:center;
+      font-size:14px;
+    }
+
+    @media (max-width: 920px){
+      .hero-grid, .grid, .two-col, .contact{grid-template-columns:1fr}
+      .menu{display:none}
+      .hero{padding-top:42px}
+      .avatar{width:130px; height:130px}
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome to mdarifhossain.bd</h1>
-  <p>Website is live on GitHub Pages.</p>
+
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="logo">M</div>
+        <div>
+          <div>mdarifhossain.bd</div>
+          <div style="font-size:12px;color:var(--muted);font-weight:400">Personal Website</div>
+        </div>
+      </div>
+      <nav class="menu">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">👋 Welcome to my website</div>
+          <h1>Hi, I’m Md. Arif Hossain.</h1>
+          <p class="lead">
+            I build simple, clean, and modern web experiences. This is my personal website, where I share my work, skills, and contact details.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn secondary" href="#contact">Contact Me</a>
+          </div>
+        </div>
+
+        <aside class="profile">
+          <div class="profile-top">
+            <img class="avatar" src="https://via.placeholder.com/300x300.png?text=Your+Photo" alt="Profile photo">
+            <div>
+              <p class="name">Md. Arif Hossain</p>
+              <p class="role">Web Developer • Designer • Learner</p>
+            </div>
+          </div>
+          <div class="profile-badges">
+            <span class="badge">HTML</span>
+            <span class="badge">CSS</span>
+            <span class="badge">JavaScript</span>
+            <span class="badge">GitHub Pages</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-sub">
+        I like building websites that are fast, responsive, and easy to use. I am learning and improving step by step.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <p class="stat">01</p>
+          <h3>Clean Design</h3>
+          <p>Simple layout, readable content, and a modern look.</p>
+        </div>
+        <div class="card">
+          <p class="stat">02</p>
+          <h3>Responsive</h3>
+          <p>Works nicely on phone, tablet, and desktop screens.</p>
+        </div>
+        <div class="card">
+          <p class="stat">03</p>
+          <h3>Fast Loading</h3>
+          <p>Lightweight page with no unnecessary extras.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-sub">These are the main things I use or am learning.</p>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Front-end</h3>
+          <p>HTML, CSS, JavaScript, responsive layout, basic UI design.</p>
+        </div>
+        <div class="card">
+          <h3>Tools</h3>
+          <p>GitHub, GitHub Pages, Cloudflare DNS, basic website deployment.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-sub">Replace these with your real projects later.</p>
+
+      <div class="two-col">
+        <div class="card project">
+          <div class="tag">Featured</div>
+          <h3>Personal Website</h3>
+          <p>A simple portfolio-style website hosted on GitHub Pages.</p>
+          <div class="project-links">
+            <a href="#" onclick="return false;">Live Demo</a>
+            <a href="#" onclick="return false;">Source Code</a>
+          </div>
+        </div>
+
+        <div class="card project">
+          <div class="tag">New</div>
+          <h3>Next Project</h3>
+          <p>Add your next website, app, or assignment here.</p>
+          <div class="project-links">
+            <a href="#" onclick="return false;">Live Demo</a>
+            <a href="#" onclick="return false;">Source Code</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-sub">Update these links with your real contact details.</p>
+
+      <div class="contact">
+        <div class="card">
+          <h3>Get in touch</h3>
+          <div class="contact-list">
+            <div class="contact-item"><strong>Email:</strong> your-email@example.com</div>
+            <div class="contact-item"><strong>Facebook:</strong> facebook.com/your-profile</div>
+            <div class="contact-item"><strong>GitHub:</strong> github.com/your-username</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Quick Note</h3>
+          <p>
+            This page is ready for your domain. After Cloudflare finishes, we will connect SSL and make the site fully live.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> mdarifhossain.bd — Built with GitHub Pages
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

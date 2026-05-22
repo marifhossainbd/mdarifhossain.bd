@@ -429,27 +429,30 @@ body.light .profile{
     <section id="projects"
 
     <section id="contact">
-      <h2 class="section-title">Contact</h2>
-      <p class="section-sub">Update these links with your real contact details.</p>
+  <h2 class="section-title">Contact</h2>
+  <p class="section-sub">Send me a message using the form below.</p>
 
-      <div class="contact">
-        <div class="card">
-          <h3>Get in touch</h3>
-          <div class="contact-list">
-            <div class="contact-item"><strong>Email:</strong> your-email@example.com</div>
-            <div class="contact-item"><strong>Facebook:</strong> facebook.com/your-profile</div>
-            <div class="contact-item"><strong>GitHub:</strong> github.com/your-username</div>
-          </div>
+  <div class="contact">
+    <div class="card">
+      <h3>Message me</h3>
+      <form class="contact-form" action="mailto:your-email@example.com" method="post" enctype="text/plain">
+        <div class="contact-list">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Your email" required>
+          <textarea name="message" rows="5" placeholder="Your message" required></textarea>
+          <button class="btn primary" type="submit">Send Message</button>
         </div>
+      </form>
+    </div>
 
-        <div class="card">
-          <h3>Quick Note</h3>
-          <p>
-            This page is ready for your domain. After Cloudflare finishes, we will connect SSL and make the site fully live.
-          </p>
-        </div>
-      </div>
-    </section>
+    <div class="card">
+      <h3>Quick Note</h3>
+      <p>
+        For a real submit-to-inbox form, we’ll connect a free form service next.
+      </p>
+    </div>
+  </div>
+</section>
   </main>
 
   <footer>

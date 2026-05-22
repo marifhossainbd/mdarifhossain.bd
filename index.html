@@ -7,7 +7,22 @@
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" />
   <meta name="description" content="Official personal website of Md. Arif Hossain - Web Developer, Designer and Learner from Bangladesh." />
   <style>
+.wa-float{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:50;
+  padding:14px 18px;
+  border-radius:999px;
+  background:#25d366;
+  color:#fff;
+  font-weight:800;
+  box-shadow:0 16px 30px rgba(0,0,0,.25);
+}
 
+.wa-float:hover{
+  transform:translateY(-2px);
+}
     .socials{
   display:flex;
   gap:12px;
@@ -124,6 +139,11 @@
       max-width:60ch;
     }
     .actions{
+      <div class="socials">
+  <a href="https://facebook.com/hossainweg" target="_blank" aria-label="Facebook">f</a>
+  <a href="https://github.com/marifhossainbd" target="_blank" aria-label="GitHub">GH</a>
+  <a href="https://linkedin.com/in/hossainweg" target="_blank" aria-label="LinkedIn">in</a>
+</div>
       display:flex; gap:12px; flex-wrap:wrap;
     }
     .btn{
@@ -457,5 +477,13 @@ body.light .profile{
     localStorage.setItem("theme", isLight ? "light" : "dark");
   });
 </script>
+  <a
+  href="https://wa.me/8801897136330"
+  target="_blank"
+  class="wa-float"
+  aria-label="Chat on WhatsApp"
+>
+  WhatsApp
+</a>
 </body>
 </html>
